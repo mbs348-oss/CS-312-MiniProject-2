@@ -1,0 +1,14 @@
+{
+  "name": "cs-312-miniproject-2",
+  "version": "1.0.0",
+  "description": "A cocktail recipe finder using Express, EJS, Axios, and TheCocktailDB API.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "axios": "latest",
+    "ejs": "latest",
+    "express": "latest"
+  }
+}

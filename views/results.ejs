@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pickedType %> Recipes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <header class="top-row">
+      <a href="/">Home</a>
+      <h1><%= pickedType %></h1>
+      <a href="/random-pick">Random</a>
+    </header>
+
+    <% if (message) { %>
+      <p class="notice"><%= message %></p>
+    <% } %>
+
+    <section class="drink-grid">
+      <% drinkList.forEach((drink) => { %>
+        <article class="drink-tile">
+          <img src="<%= drink.strDrinkThumb %>/medium" alt="<%= drink.strDrink %>">
+
+          <div class="tile-info">
+            <h2><%= drink.strDrink %></h2>
+            <a href="/recipe/<%= drink.idDrink %>">View Recipe</a>
+          </div>
+        </article>
+      <% }); %>
+    </section>
+  </main>
+</body>
+</html>

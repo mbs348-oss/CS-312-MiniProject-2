@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SipScout</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="home-wrap">
+    <section class="hero-area">
+      <div class="hero-text">
+        <p class="tiny-title">Cocktail Recipe Finder</p>
+        <h1>SipScout</h1>
+        <p>
+          Pick a drink category and get recipes, ingredients, instructions, and photos from TheCocktailDB.
+        </p>
+      </div>
+
+      <form class="choice-box" action="/find-drinks" method="POST">
+        <label for="drinkType">Drink category</label>
+
+        <select id="drinkType" name="drinkType" required>
+          <option value="">Choose one</option>
+
+          <% drinkTypes.forEach((type) => { %>
+            <option value="<%= type %>"><%= type %></option>
+          <% }); %>
+        </select>
+
+        <button type="submit">Find Recipes</button>
+
+        <a href="/random-pick">Pick something random</a>
+      </form>
+    </section>
+
+    <% if (message) { %>
+      <p class="notice"><%= message %></p>
+    <% } %>
+  </main>
+</body>
+</html>

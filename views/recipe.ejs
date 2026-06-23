@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= drinkInfo ? drinkInfo.strDrink : "Recipe" %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <header class="top-row">
+      <a href="/">Home</a>
+      <h1>Recipe</h1>
+      <a href="/random-pick">Random</a>
+    </header>
+
+    <% if (message) { %>
+      <p class="notice"><%= message %></p>
+    <% } %>
+
+    <% if (drinkInfo) { %>
+      <section class="recipe-card">
+        <img class="main-photo" src="<%= drinkInfo.strDrinkThumb %>/large" alt="<%= drinkInfo.strDrink %>">
+
+        <div class="recipe-text">
+          <p class="tiny-title"><%= drinkInfo.strCategory %></p>
+          <h2><%= drinkInfo.strDrink %></h2>
+
+          <div class="tag-row">
+            <span><%= drinkInfo.strAlcoholic %></span>
+            <span><%= drinkInfo.strGlass %></span>
+          </div>
+
+          <h3>Ingredients</h3>
+
+          <ul class="recipe-list">
+            <% recipeItems.forEach((item) => { %>
+              <li>
+                <span><%= item.name %></span>
+                <span><%= item.amount %></span>
+              </li>
+            <% }); %>
+          </ul>
+
+          <h3>Instructions</h3>
+          <p class="steps"><%= drinkInfo.strInstructions %></p>
+        </div>
+      </section>
+    <% } %>
+  </main>
+</body>
+</html>
